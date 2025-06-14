@@ -1,6 +1,6 @@
 # p5-demo
 
-A simple mouse animation using P5.js.
+A simple mouse-driven animation using P5.js.
 
 Instructions:
 - Clone repo
