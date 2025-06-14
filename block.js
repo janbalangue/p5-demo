@@ -21,7 +21,7 @@ class Block {
     let targetAngle = atan2(my - this.y, mx - this.x);
 
     // Always check distance to mouse, not mouse movement
-    if (distance < distMouse) {
+    if (distance < distMouse && this.c < 255) {
       this.c = 255;
     }
 
