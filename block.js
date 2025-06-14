@@ -20,11 +20,13 @@ class Block {
     let distance = dist(mx, my, this.x, this.y);
     let targetAngle = atan2(my - this.y, mx - this.x);
 
-    if (distance < distMouse) {
-      this.c = 255;
+    if (pmouseX - mouseX != 0 || pmouseY - mouseY != 0) {
+      if (distance < distMouse) {
+        this.c = 255;
+      }
     }
 
-    if (this.c > 200) {
+    if (this.c > 210) {
       this.c -= 3;
       this.angle = lerp(this.angle, targetAngle, 0.1);
     } else if (this.c > 70) {
