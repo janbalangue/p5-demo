@@ -5,7 +5,7 @@ class Block {
     this.angle = 0;
     this.c = 70;
   }
-  
+
   display() {
     noFill();
     stroke(this.c);
@@ -15,28 +15,27 @@ class Block {
     rect(0, 0, size - offset, size - offset);
     pop();
   }
-  
+
   move() {
-    // check if mouse is moving
-    if (pmouseX - mouseX != 0 || pmouseY - mouseY != 0) {
-      let distance = dist(mouseX, mouseY, this.x, this.y);  
-      
+    let distance = dist(mouseX, mouseY, this.x, this.y);
+    let targetAngle = atan2(mouseY - this.y, mouseX - this.x);
+
+    if (Math.abs(pmouseX -mouseX) >= 0.05 || Math.abs(pmouseY != mouseY) >= 0.05){
       if (distance < distMouse) {
-        this.angle += 1;
         this.c = 255;
       }
     }
-      
-      // if squares are rotating, keep rotating until 90 degrees
-    if (this.angle > 0 && this.angle < 90) {
-      this.angle += 1;
-      if (this.c > 70) {
-        this.c -= 3;
-      }
+
+    if (this.c > 200) {
+      this.c -= 3;
+      this.angle = lerp(this.angle, targetAngle, 0.1);
+    } else if (this.c > 70) {
+      this.c -= 4;
+      this.angle = lerp(this.angle, 0, 0.1);
     } else {
-      this.angle = 0;
       this.c = 70;
+      this.angle = 0;
     }
   }
-  
 }
+
