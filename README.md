@@ -7,4 +7,4 @@ Instructions:
 - Open index.html in a web browser (seems to work best on Chrome)
 - Move the mouse... slowly :)
 
-![p5-demo screenshot](images/p5-demo.png)
+![p5-demo screenshot](images/p5-demo-x.png)

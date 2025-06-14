@@ -12,7 +12,11 @@ class Block {
     push();
     translate(this.x, this.y);
     rotate(this.angle);
-    rect(0, 0, size - offset, size - offset);
+    if (this.c > 210) {
+      this.drawX();
+    } else {
+      rect(0, 0, size - offset, size - offset);
+    }
     pop();
   }
 
@@ -27,15 +31,20 @@ class Block {
       }
     }
 
-    if (this.c > 200) {
-      this.c -= 3;
+    if (this.c > 210) {
+      this.c -= 2;
       this.angle = lerp(this.angle, targetAngle, 0.1);
     } else if (this.c > 70) {
-      this.c -= 4;
+      this.c -= 3;
       this.angle = lerp(this.angle, 0, 0.1);
     } else {
       this.c = 70;
       this.angle = 0;
     }
+  }
+
+  drawX() {
+    line(-size / 4, -size / 4, size / 4, size / 4);
+    line(size / 4, -size / 4, -size / 4, size / 4);
   }
 }
