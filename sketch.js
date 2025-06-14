@@ -1,4 +1,4 @@
-let distMouse = 15;
+let distMouse = 50;
 let cols, rows;
 let size = 10;
 let offset = 4;
