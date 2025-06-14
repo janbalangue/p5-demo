@@ -27,7 +27,7 @@ class Block {
       }
     }
 
-    if (this.c > 150) {
+    if (this.c > 200) {
       this.c -= 2;
       this.angle = lerp(this.angle, targetAngle, 0.1);
     } else if (this.c > 70) {
