@@ -9,8 +9,8 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   angleMode(DEGREES);
-  cols = width / size;
-  rows = height / size;
+  cols = windowWidth / size;
+  rows = windowHeight / size;
   canvasBounds = canvas.elt.getBoundingClientRect();
 
   for (let i = 0; i < cols; i++) {
