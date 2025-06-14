@@ -16,14 +16,12 @@ class Block {
     pop();
   }
 
-  move() {
-    let distance = dist(mouseX, mouseY, this.x, this.y);
-    let targetAngle = atan2(mouseY - this.y, mouseX - this.x);
+  move(mx, my) {
+    let distance = dist(mx, my, this.x, this.y);
+    let targetAngle = atan2(my - this.y, mx - this.x);
 
-    if (Math.abs(pmouseX -mouseX) >= 0.05 || Math.abs(pmouseY != mouseY) >= 0.05){
-      if (distance < distMouse) {
-        this.c = 255;
-      }
+    if (distance < distMouse) {
+      this.c = 255;
     }
 
     if (this.c > 200) {
