@@ -20,21 +20,22 @@ class Block {
     let distance = dist(mx, my, this.x, this.y);
     let targetAngle = atan2(my - this.y, mx - this.x);
 
-    // Always check distance to mouse, not mouse movement
-    if (distance < distMouse && this.c < 200) {
-      this.c += 55;
-    }
-    if (distance >= distMouse) {
-      if (this.c > 210) {
-        this.c -= 3;
+    if (pmouseX !== mouseX || pmouseY !== mouseY) {
+      if (distance < distMouse) {
+        this.c = 255;
         this.angle = lerp(this.angle, targetAngle, 0.1);
-      } else if (distance === distMouse && this.c > 70) {
-        this.c -= 4;
-        this.angle = lerp(this.angle, 0, 0.1);
-      } else {
-        this.c = 70;
-        this.angle = 0;
       }
+    }
+
+    if (this.c > 150) {
+      this.c -= 2;
+      this.angle = lerp(this.angle, targetAngle, 0.1);
+    } else if (this.c > 70) {
+      this.c -= 4;
+      this.angle = lerp(this.angle, 0, 0.1);
+    } else {
+      this.c = 70;
+      this.angle = 0;
     }
   }
 }
